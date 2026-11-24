@@ -32,8 +32,8 @@ Requires Python 3.9 or newer.
 1. Clone the repository and move into it:
 
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone https://github.com/ateygong/northwind-analysis.git
+   cd northwind-analysis
    ```
 
 2. Create a virtual environment and install the packages:
