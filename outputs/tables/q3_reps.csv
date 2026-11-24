@@ -1,0 +1,10 @@
+EmployeeID,Title,BasedIn,Orders,Revenue,Customers,Countries,RevenueSharePct,RevenuePerOrder,Name
+4,Sales Representative,USA,156,232890.85,75,20,18.4,1492.89,Margaret Peacock
+3,Sales Representative,USA,127,202812.84,63,20,16.02,1596.95,Janet Leverling
+1,Sales Representative,USA,123,192107.6,65,21,15.18,1561.85,Nancy Davolio
+2,"Vice President, Sales",USA,96,166537.75,59,19,13.16,1734.77,Andrew Fuller
+8,Inside Sales Coordinator,USA,104,126862.28,56,19,10.02,1219.83,Laura Callahan
+7,Sales Representative,UK,72,124568.23,45,20,9.84,1730.11,Robert King
+9,Sales Representative,UK,43,77308.07,29,17,6.11,1797.86,Anne Dodsworth
+6,Sales Representative,UK,67,73913.13,44,17,5.84,1103.18,Michael Suyama
+5,Sales Manager,UK,42,68792.28,29,15,5.43,1637.91,Steven Buchanan

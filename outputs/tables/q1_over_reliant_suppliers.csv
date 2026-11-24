@@ -1,0 +1,5 @@
+SupplierID,Supplier,Country,RevenueSharePct,xFairShare,TopProduct,TopProductPctOfSupplier,TopProductPctOfTotal,TopProductDiscontinued
+18,Aux joyeux ecclésiastiques,France,12.14,3.52,Côte de Blaye,92.0,11.17,False
+12,Plutzer Lebensmittelgroßmärkte AG,Germany,11.48,3.33,Thüringer Rostbratwurst,55.28,6.35,True
+28,Gai pâturage,France,9.32,2.7,Raclette Courdavault,60.31,5.62,False
+7,"Pavlova, Ltd.",Australia,8.41,2.44,Alice Mutton,30.71,2.58,True

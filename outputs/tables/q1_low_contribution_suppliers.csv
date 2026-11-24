@@ -1,0 +1,9 @@
+SupplierID,Supplier,Country,Products,DiscontinuedProducts,RevenueSharePct,xFairShare
+17,Svensk Sjöföda AB,Sweden,3,0,1.59,0.46
+6,Mayumi's,Japan,3,0,1.16,0.34
+13,Nord-Ost-Fisch Handelsgesellschaft mbH,Germany,1,0,1.06,0.31
+9,PB Knäckebröd AB,Sweden,2,0,0.93,0.27
+21,Lyngbysild,Denmark,2,0,0.81,0.23
+27,Escargots Nouveaux,France,1,0,0.46,0.13
+22,Zaanse Snoepfabriek,Netherlands,2,0,0.42,0.12
+10,Refrescos Americanas LTDA,Brazil,1,1,0.36,0.1
