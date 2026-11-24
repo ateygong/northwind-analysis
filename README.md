@@ -3,7 +3,7 @@
 Analysis of the Northwind Database that answers three business questions:
 
 1. **Supplier reliance:** How reliant are we on individual suppliers, in both directions?
-2. **Products:** How much of each product is ordered per year, and which products should we re-evaluate selling?
+2. **Products:** Which products should we re-evaluate selling?
 3. **Markets and sales staff:** Are our sales staff focused on our most valuable markets?
 
 The results are presented on the webpage `index.html`, live at **https://ateygong.github.io/northwind-analysis/**. Every number, chart and table on the page comes from the Python code in `src/`.
