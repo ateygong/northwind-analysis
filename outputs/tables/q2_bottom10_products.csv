@@ -1,8 +1,8 @@
 ProductID,Product,Category,Supplier,Price,TotalRevenue,UnitsPerMonth1997,UnitsPerMonth1998,ChangeUnitsPerMonth,ChangeRevenuePerMonth,Trend
 15,Genen Shouyu,Condiments,Mayumi's,15.5,1784.82,8.1,0.0,-8.1,-122.9,Fading
-37,Gravad lax,Seafood,Svensk Sjöföda AB,26.0,2688.4,2.3,13.6,11.3,238.77,Picking up
-48,Chocolade,Confections,Zaanse Snoepfabriek,12.75,1368.71,10.8,1.6,-9.2,-89.49,Fading
-67,Laughing Lumberjack Lager,Beverages,Bigfoot Breweries,14.0,2396.8,5.4,22.8,17.4,213.13,Picking up
-50,Valkoinen suklaa,Confections,Karkki Oy,16.25,3437.69,12.5,11.0,-1.5,-2.37,Steady
-66,Louisiana Hot Spiced Okra,Condiments,New Orleans Cajun Delights,17.0,3383.0,17.3,0.2,-17.1,-243.1,Fading
-73,Röd Kaviar,Seafood,Svensk Sjöföda AB,15.0,3997.2,21.3,2.4,-18.9,-257.18,Fading
+37,Gravad lax,Seafood,Svensk Sjöföda AB,26.0,2688.4,2.3,17.0,14.7,311.57,Picking up
+48,Chocolade,Confections,Zaanse Snoepfabriek,12.75,1368.71,10.8,2.0,-8.8,-85.16,Fading
+67,Laughing Lumberjack Lager,Beverages,Bigfoot Breweries,14.0,2396.8,5.4,28.5,23.1,285.37,Picking up
+50,Valkoinen suklaa,Confections,Karkki Oy,16.25,3437.69,12.5,8.2,-4.3,-47.06,Steady
+66,Louisiana Hot Spiced Okra,Condiments,New Orleans Cajun Delights,17.0,3383.0,17.3,0.0,-17.3,-246.5,Fading
+73,Röd Kaviar,Seafood,Svensk Sjöföda AB,15.0,3997.2,21.3,2.5,-18.8,-255.62,Fading

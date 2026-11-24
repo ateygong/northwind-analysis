@@ -13,6 +13,22 @@ FADING_RATIO = 0.5    # 1998 monthly units < 50% of 1997 -> fading
 RISING_RATIO = 1.5    # 1998 monthly units > 150% of 1997 -> picking up
 
 
+def full_months(lines):
+    """Drop order lines from the final, partly covered month.
+
+    The data ends on 6 May 1998, so May 1998 would understate any
+    per-month average or monthly total.
+
+    Args:
+        lines (pandas.DataFrame): Order lines with OrderDate.
+
+    Returns:
+        pandas.DataFrame: ``lines`` without the last calendar month.
+    """
+    last_full = lines["OrderDate"].max().to_period("M") - 1
+    return lines[lines["OrderDate"].dt.to_period("M") <= last_full]
+
+
 def months_per_year(lines):
     """Count the months with orders in each year.
 
@@ -28,11 +44,14 @@ def months_per_year(lines):
 def product_year_table(tables, lines, months):
     """Build a per-product table of units and revenue by year.
 
+    Yearly and overall totals use every order line. Per-month
+    averages use full months only (see full_months).
+
     Args:
         tables (dict[str, pandas.DataFrame]): Output of load_tables.
         lines (pandas.DataFrame): Order lines from order_lines.
-        months (pandas.Series): Months with orders per year, from
-            months_per_year.
+        months (pandas.Series): Full months with orders per year, from
+            months_per_year applied to full_months(lines).
 
     Returns:
         pandas.DataFrame: One row per product, indexed by ProductID,
@@ -42,13 +61,17 @@ def product_year_table(tables, lines, months):
     yearly = lines.pivot_table(index="ProductID", columns="Year",
                                values=["Quantity", "Revenue"], aggfunc="sum", fill_value=0)
     units, revenue = yearly["Quantity"], yearly["Revenue"]
-    per_month = units.div(months, axis=1)
+    full = full_months(lines).pivot_table(index="ProductID", columns="Year",
+                                          values=["Quantity", "Revenue"], aggfunc="sum")
+    full = full.reindex(units.index).fillna(0)
+    per_month = full["Quantity"].div(months, axis=1)
+    revenue_per_month = full["Revenue"].div(months, axis=1)
 
     table = tables["products"].set_index("ProductID")[
         ["ProductName", "SupplierID", "CategoryID", "Price", "Discontinued"]]
     table = table.join(units.add_prefix("Units_")).join(revenue.round(2).add_prefix("Revenue_"))
     table = table.join(per_month.round(1).add_prefix("UnitsPerMonth_"))
-    table = table.join(revenue.div(months, axis=1).round(2).add_prefix("RevenuePerMonth_"))
+    table = table.join(revenue_per_month.round(2).add_prefix("RevenuePerMonth_"))
     table["TotalUnits"] = units.sum(axis=1)
     table["TotalRevenue"] = revenue.sum(axis=1).round(2)
     table = table.reset_index().merge(
@@ -64,7 +87,8 @@ def category_per_month(lines, tables, months):
     """Compute average units per month by category and year.
 
     Args:
-        lines (pandas.DataFrame): Order lines from order_lines.
+        lines (pandas.DataFrame): Full-month order lines, from
+            full_months.
         tables (dict[str, pandas.DataFrame]): Output of load_tables.
         months (pandas.Series): Months with orders per year, from
             months_per_year.
@@ -242,12 +266,13 @@ def run():
     """
     tables = load_tables()
     lines = order_lines(tables)
-    months = months_per_year(lines)
+    full = full_months(lines)
+    months = months_per_year(full)
     product_table = product_year_table(tables, lines, months)
-    categories = category_per_month(lines, tables, months)
+    categories = category_per_month(full, tables, months)
     bottom, n, n_active = bottom_products(product_table)
     metrics = summary_metrics(tables, lines, product_table, bottom)
-    company = lines.groupby("Year")[["Quantity", "Revenue"]].sum().div(months, axis=0)
+    company = full.groupby("Year")[["Quantity", "Revenue"]].sum().div(months, axis=0)
     monthly = monthly_units(lines, bottom.index)
     table = bottom_table(bottom)
 

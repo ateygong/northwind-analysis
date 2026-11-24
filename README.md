@@ -77,7 +77,7 @@ Requires Python 3.9 or newer.
 ## Method notes
 
 - **Revenue** = UnitPrice × Quantity × (1 − Discount), calculated from the Order Details sheet.
-- **Partial years:** the data runs from July 1996 to early May 1998, so comparisons between years use averages per month, not yearly totals. Monthly line charts leave out May 1998 because it is only partly covered.
+- **Partial years:** the data runs from July 1996 to May 6, 1998, so comparisons between years use averages per month, not yearly totals. May 1998 is only partly covered, so it is left out of per-month averages and monthly charts (yearly and overall totals still include it).
 - **Q1:** a supplier is *over-reliant* if its revenue share is at least 2× an equal share (1/29 = 3.45%), and *low contribution* if it is at most 0.5×. Concentration is measured with the Herfindahl-Hirschman Index (HHI) of supplier revenue shares.
 - **Q2:** the bottom 10% is taken from the 69 active products (the 8 discontinued products are left out), ranked by total units over the whole period. A product is *fading* if its 1998 units per month are below half of 1997, and *picking up* if above 1.5×.
 - **Q3:** countries are grouped into Europe, North America (USA, Canada, Mexico) and South America (Brazil, Argentina, Venezuela). Each order is linked to the office of the employee who handled it (5 in the US, 4 in the UK). "Few customers, high value" countries are found with a median split on number of customers and revenue per customer.
